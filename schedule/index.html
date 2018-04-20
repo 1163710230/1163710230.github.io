@@ -356,14 +356,7 @@
           
 
   
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
+ <div id="gitalk-container"></div>
 
   
 
@@ -698,26 +691,6 @@
 
   
 
-    
-      <script id="dsq-count-scr" src="https://1163710230.github.io.disqus.com/count.js" async></script>
-    
-
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/schedule/index.html';
-          this.page.identifier = 'schedule/index.html';
-          this.page.title = '日程表';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://1163710230.github.io.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
-    
-
-  
-
 
 
 
@@ -733,6 +706,7 @@
 
 
 
+  
 
 
 
@@ -741,6 +715,24 @@
 
 
 
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'e8898cbf4e5f200cb0f7',
+          clientSecret: 'e5dd04bf6b8e87cee21832a13715765c94e7b4dd',
+          repo: '1163710230.github.io',
+          owner: '1163710230',
+          admin: ['1163710230'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
   
 
