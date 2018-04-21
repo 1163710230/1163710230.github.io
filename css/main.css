@@ -1932,7 +1932,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d43d46;
+  background: #b4137e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2743,7 +2743,6 @@ hr {
     width: auto;
     margin-bottom: 50px;
     padding: 10px;
-    background: #fff;
   }
 }
 .site-meta {
@@ -3021,7 +3020,6 @@ hr {
 @media (max-width: 767px) {
   .footer-inner {
     width: auto;
-    background: #fff;
     text-align: center;
   }
 }
