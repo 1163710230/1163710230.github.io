@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[SVM-RFE]]></title>
+    <url>%2F2018%2F04%2F24%2FSVM-RFE%2F</url>
+    <content type="text"><![CDATA[SVM-RFE的过程包括四个步骤：训练分类器，根据排列准则计算每个特征的地位，除去排在末位的特征，也就是除去最不相关的特征。 伪代码描述如下 输入和输出(1)Inputs: Training examples $$ X_0 = [x_1, x_2, \cdots x_k, \cdots x_l] $$ Class labels $$ y = [y_1, y_2, \cdots y_k, \cdots y_l] $$(2)Output: Feature ranked list $ r $. 初始化 (1)Surviving features $$ s = [1, 2, … n] $$ (2)Feature ranked list $$ r = [ ] $$ 计算 Repeat until s = [ ]X = X0(:, s) model = SVM-train(X, y) Rank(i) = RankCriterion(model.aplha, X) f = argmin(Rank) r = [s(f), r] s = s(1:f-1, f+1:length(s)) EndIn this,for SVM-RFE with a linear kernel function $ Rank(i) = \sum_{i=1}^{m}(α_iy_ix_i)^2) $ for SVM-RFE with a nonlinear kernel function $ Rank(i) = \frac{1}{2}α‘Qα − \frac{1}{2}α‘Q(−i)α $;$ α $ is the coefficient vector，and the $ Q(−i) $ means the matrix without the ith featureThis equation is based on the assumption that α is unchanged when the ith feature is eliminated,]]></content>
+      <tags>
+        <tag>机器学习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2F2018%2F04%2F19%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
