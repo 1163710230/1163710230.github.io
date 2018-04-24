@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="机器学习," />
+  <meta name="keywords" content="机器学习,SVM,RFE," />
 
 
 
@@ -97,14 +97,14 @@
 
 
 <meta name="description" content="SVM-RFE的简介。">
-<meta name="keywords" content="机器学习">
+<meta name="keywords" content="机器学习,SVM,RFE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SVM-RFE">
 <meta property="og:url" content="http://yoursite.com/2018/04/24/SVM-RFE/index.html">
 <meta property="og:site_name" content="XYT&#39;s Blog">
 <meta property="og:description" content="SVM-RFE的简介。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-24T09:33:08.298Z">
+<meta property="og:updated_time" content="2018-04-24T09:40:12.588Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM-RFE">
 <meta name="twitter:description" content="SVM-RFE的简介。">
@@ -374,6 +374,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -387,7 +409,7 @@
 <span class="post-meta-item-icon">
         <i class="fa fa-calendar-check-o"></i>
 更新于
-    <time itemprop="dateUpdated" datetime="2018-04-24T17:33:08+08:00" content="2018-04-24">
+    <time itemprop="dateUpdated" datetime="2018-04-24T17:40:12+08:00" content="2018-04-24">
       2018-04-24
     </time>
 </span>
@@ -454,8 +476,8 @@
       
         <blockquote class="blockquote-center"><p>当一个数据集特征数较多时，分类变得困难并且精度降低，所以我们需要提取其中的关键特征，所以我们学习了SVM-RFE这一特征提取及分类的方法，这种方法是基于递归功能消除的SVM，其目的是减少特征空间维度，并逐一消除最不相关的功能。</p>
 </blockquote>
-<p>#SVM-RFE的过程<br>SVM-RFE的过程包括四个步骤：训练分类器，根据排列准则计算每个特征的地位，除去排在末位的特征，也就是除去最不相关的特征。</p>
-<p>#SVM-RFE的伪代码<br>伪代码描述如下</p>
+<h1 id="SVM-RFE的过程"><a href="#SVM-RFE的过程" class="headerlink" title="SVM-RFE的过程"></a>SVM-RFE的过程</h1><p>SVM-RFE的过程包括四个步骤：训练分类器，根据排列准则计算每个特征的地位，除去排在末位的特征，也就是除去最不相关的特征。</p>
+<h1 id="SVM-RFE的伪代码"><a href="#SVM-RFE的伪代码" class="headerlink" title="SVM-RFE的伪代码"></a>SVM-RFE的伪代码</h1><p>伪代码描述如下</p>
 <ol>
 <li>输入和输出<br>(1)输入:<br> 测试集<br> $$ X_0 = [x_1, x_2, \cdots x_k, \cdots x_l] $$<br> 类别标签<br> $$ y = [y_1, y_2, \cdots y_k, \cdots y_l] $$<br>(2)输出:<br> 关于特征的排好序的列表 $ r $.</li>
 <li>初始化<br> (1)剩余特征<br> $$ s = [1, 2, … n] $$<br> (2)已排序的特征列表<br> $$ r = [ ] $$</li>
@@ -467,7 +489,7 @@
     r = [s(f), r]
     s = s(1:f-1, f+1:length(s))
 End
-</code></pre>其中，对于使用线性核函数的SVM-RFE他的rank计算公式是 $$ Rank(i) = \sum_{i=1}^{m}(α_iy_ix_i)^2 $$<br>而使用非线性核函数的rank计算公式是 $$ Rank(i) = \frac{1}{2}α‘Qα − \frac{1}{2}α‘Q(−i)α $$<br>##公式中的变量解释：<br>$ α $ 是系数向量，$ Q(−i) $代表没有第$ i $个特征的矩阵。<br>##一些假设：<br>$ α $在第$ i $个特征被删除前是不变的，也就是说其分类器与之前相同。</li>
+</code></pre>其中，对于使用线性核函数的SVM-RFE他的rank计算公式是 $$ Rank(i) = \sum_{i=1}^{m}(α_iy_ix_i)^2 $$<br>而使用非线性核函数的rank计算公式是 $$ Rank(i) = \frac{1}{2}α‘Qα − \frac{1}{2}α‘Q(−i)α $$<h2 id="公式中的变量解释"><a href="#公式中的变量解释" class="headerlink" title="公式中的变量解释"></a>公式中的变量解释</h2>$ α $ 是系数向量，$ Q(−i) $代表没有第$ i $个特征的矩阵。<h2 id="一些假设"><a href="#一些假设" class="headerlink" title="一些假设"></a>一些假设</h2>$ α $在第$ i $个特征被删除前是不变的，也就是说其分类器与之前相同。</li>
 </ol>
 <p>基于以上算法和公式和SVM的相关方法，我们得到了SVM-RFE算法。</p>
 
@@ -525,6 +547,10 @@ End
         <div class="post-tags">
           
             <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/SVM/" rel="tag"># SVM</a>
+          
+            <a href="/tags/RFE/" rel="tag"># RFE</a>
           
         </div>
       
@@ -600,8 +626,17 @@ End
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -627,13 +662,22 @@ End
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
             
               
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -736,6 +780,22 @@ End
 </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SVM-RFE的过程"><span class="nav-number">1.</span> <span class="nav-text">SVM-RFE的过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SVM-RFE的伪代码"><span class="nav-number">2.</span> <span class="nav-text">SVM-RFE的伪代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#公式中的变量解释"><span class="nav-number">2.1.</span> <span class="nav-text">公式中的变量解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些假设"><span class="nav-number">2.2.</span> <span class="nav-text">一些假设</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

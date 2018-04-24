@@ -3,9 +3,14 @@
   <entry>
     <title><![CDATA[SVM-RFE]]></title>
     <url>%2F2018%2F04%2F24%2FSVM-RFE%2F</url>
-    <content type="text"><![CDATA[当一个数据集特征数较多时，分类变得困难并且精度降低，所以我们需要提取其中的关键特征，所以我们学习了SVM-RFE这一特征提取及分类的方法，这种方法是基于递归功能消除的SVM，其目的是减少特征空间维度，并逐一消除最不相关的功能。 #SVM-RFE的过程SVM-RFE的过程包括四个步骤：训练分类器，根据排列准则计算每个特征的地位，除去排在末位的特征，也就是除去最不相关的特征。 #SVM-RFE的伪代码伪代码描述如下 输入和输出(1)输入: 测试集 $$ X_0 = [x_1, x_2, \cdots x_k, \cdots x_l] $$ 类别标签 $$ y = [y_1, y_2, \cdots y_k, \cdots y_l] $$(2)输出: 关于特征的排好序的列表 $ r $. 初始化 (1)剩余特征 $$ s = [1, 2, … n] $$ (2)已排序的特征列表 $$ r = [ ] $$ 计算Repeat until s = [ ] X = X0(:, s) model = SVM-train(X, y) Rank(i) = RankCriterion(model.aplha, X) f = argmin(Rank) r = [s(f), r] s = s(1:f-1, f+1:length(s)) End 其中，对于使用线性核函数的SVM-RFE他的rank计算公式是 $$ Rank(i) = \sum_{i=1}^{m}(α_iy_ix_i)^2 $$而使用非线性核函数的rank计算公式是 $$ Rank(i) = \frac{1}{2}α‘Qα − \frac{1}{2}α‘Q(−i)α $$##公式中的变量解释：$ α $ 是系数向量，$ Q(−i) $代表没有第$ i $个特征的矩阵。##一些假设：$ α $在第$ i $个特征被删除前是不变的，也就是说其分类器与之前相同。 基于以上算法和公式和SVM的相关方法，我们得到了SVM-RFE算法。]]></content>
+    <content type="text"><![CDATA[当一个数据集特征数较多时，分类变得困难并且精度降低，所以我们需要提取其中的关键特征，所以我们学习了SVM-RFE这一特征提取及分类的方法，这种方法是基于递归功能消除的SVM，其目的是减少特征空间维度，并逐一消除最不相关的功能。 SVM-RFE的过程SVM-RFE的过程包括四个步骤：训练分类器，根据排列准则计算每个特征的地位，除去排在末位的特征，也就是除去最不相关的特征。 SVM-RFE的伪代码伪代码描述如下 输入和输出(1)输入: 测试集 $$ X_0 = [x_1, x_2, \cdots x_k, \cdots x_l] $$ 类别标签 $$ y = [y_1, y_2, \cdots y_k, \cdots y_l] $$(2)输出: 关于特征的排好序的列表 $ r $. 初始化 (1)剩余特征 $$ s = [1, 2, … n] $$ (2)已排序的特征列表 $$ r = [ ] $$ 计算Repeat until s = [ ] X = X0(:, s) model = SVM-train(X, y) Rank(i) = RankCriterion(model.aplha, X) f = argmin(Rank) r = [s(f), r] s = s(1:f-1, f+1:length(s)) End 其中，对于使用线性核函数的SVM-RFE他的rank计算公式是 $$ Rank(i) = \sum_{i=1}^{m}(α_iy_ix_i)^2 $$而使用非线性核函数的rank计算公式是 $$ Rank(i) = \frac{1}{2}α‘Qα − \frac{1}{2}α‘Q(−i)α $$公式中的变量解释$ α $ 是系数向量，$ Q(−i) $代表没有第$ i $个特征的矩阵。一些假设$ α $在第$ i $个特征被删除前是不变的，也就是说其分类器与之前相同。 基于以上算法和公式和SVM的相关方法，我们得到了SVM-RFE算法。]]></content>
+      <categories>
+        <category>机器学习</category>
+      </categories>
       <tags>
         <tag>机器学习</tag>
+        <tag>SVM</tag>
+        <tag>RFE</tag>
       </tags>
   </entry>
   <entry>

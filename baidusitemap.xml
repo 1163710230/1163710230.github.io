@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://yoursite.com/2018/04/24/SVM-RFE/</loc>
-    <lastmod>2018-04-24T09:33:08.298Z</lastmod>
+    <lastmod>2018-04-24T09:40:12.588Z</lastmod>
     <data>
         <display>
         <title>SVM-RFE</title>
@@ -13,8 +13,15 @@
         
         <tag>机器学习</tag>
          
+        <tag>SVM</tag>
+         
+        <tag>RFE</tag>
+         
          
            
+             
+              <breadCrumb title="机器学习" url="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+          
         </display>
     </data>
     </url>
