@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="XYT&#39;s Blog">
 <meta property="og:description" content="SVM-RFE的简介。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-24T08:56:48.973Z">
+<meta property="og:updated_time" content="2018-04-24T09:33:08.298Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SVM-RFE">
 <meta name="twitter:description" content="SVM-RFE的简介。">
@@ -387,7 +387,7 @@
 <span class="post-meta-item-icon">
         <i class="fa fa-calendar-check-o"></i>
 更新于
-    <time itemprop="dateUpdated" datetime="2018-04-24T16:56:48+08:00" content="2018-04-24">
+    <time itemprop="dateUpdated" datetime="2018-04-24T17:33:08+08:00" content="2018-04-24">
       2018-04-24
     </time>
 </span>
@@ -411,7 +411,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  316 字
+                  418 字
                 </span>
               
 
@@ -427,7 +427,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -452,16 +452,13 @@
       
 
       
-        <!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 -->
-<!-- 其中 class="blockquote-center" 是必须的 -->
-<!-- 标签 方式，要求版本在0.4.5或以上 -->
-<blockquote class="blockquote-center"><p>当一个数据集特征数较多时，分类变得困难并且精度降低，所以我们需要提取其中的关键特征，所以我们学习了SVM-RFE这一特征提取及分类的方法，这种方法是基于递归功能消除的SVM，其目的是减少特征空间维度，并逐一消除最不相关的功能。</p>
+        <blockquote class="blockquote-center"><p>当一个数据集特征数较多时，分类变得困难并且精度降低，所以我们需要提取其中的关键特征，所以我们学习了SVM-RFE这一特征提取及分类的方法，这种方法是基于递归功能消除的SVM，其目的是减少特征空间维度，并逐一消除最不相关的功能。</p>
 </blockquote>
-<p>SVM-RFE的过程包括四个步骤：训练分类器，根据排列准则计算每个特征的地位，除去排在末位的特征，也就是除去最不相关的特征。</p>
-<p>伪代码描述如下</p>
+<p>#SVM-RFE的过程<br>SVM-RFE的过程包括四个步骤：训练分类器，根据排列准则计算每个特征的地位，除去排在末位的特征，也就是除去最不相关的特征。</p>
+<p>#SVM-RFE的伪代码<br>伪代码描述如下</p>
 <ol>
-<li>输入和输出<br>(1)Inputs:<br> Training examples<br> $$ X_0 = [x_1, x_2, \cdots x_k, \cdots x_l] $$<br> Class labels<br> $$ y = [y_1, y_2, \cdots y_k, \cdots y_l] $$<br>(2)Output:<br> Feature ranked list $ r $.</li>
-<li>初始化<br> (1)Surviving features<br> $$ s = [1, 2, … n] $$<br> (2)Feature ranked list<br> $$ r = [ ] $$</li>
+<li>输入和输出<br>(1)输入:<br> 测试集<br> $$ X_0 = [x_1, x_2, \cdots x_k, \cdots x_l] $$<br> 类别标签<br> $$ y = [y_1, y_2, \cdots y_k, \cdots y_l] $$<br>(2)输出:<br> 关于特征的排好序的列表 $ r $.</li>
+<li>初始化<br> (1)剩余特征<br> $$ s = [1, 2, … n] $$<br> (2)已排序的特征列表<br> $$ r = [ ] $$</li>
 <li>计算<pre><code>Repeat until s = [ ]
     X = X0(:, s)
     model = SVM-train(X, y) 
@@ -470,8 +467,9 @@
     r = [s(f), r]
     s = s(1:f-1, f+1:length(s))
 End
-</code></pre>In this,for SVM-RFE with a linear kernel function $$ Rank(i) = \sum_{i=1}^{m}(α_iy_ix_i)^2 $$<br>for SVM-RFE with a nonlinear kernel function $$ Rank(i) = \frac{1}{2}α‘Qα − \frac{1}{2}α‘Q(−i)α $$<br>$ α $ is the coefficient vector，and the $ Q(−i) $ means the matrix without the ith feature<br>This equation is based on the assumption that α is unchanged when the ith feature is eliminated,</li>
+</code></pre>其中，对于使用线性核函数的SVM-RFE他的rank计算公式是 $$ Rank(i) = \sum_{i=1}^{m}(α_iy_ix_i)^2 $$<br>而使用非线性核函数的rank计算公式是 $$ Rank(i) = \frac{1}{2}α‘Qα − \frac{1}{2}α‘Q(−i)α $$<br>##公式中的变量解释：<br>$ α $ 是系数向量，$ Q(−i) $代表没有第$ i $个特征的矩阵。<br>##一些假设：<br>$ α $在第$ i $个特征被删除前是不变的，也就是说其分类器与之前相同。</li>
 </ol>
+<p>基于以上算法和公式和SVM的相关方法，我们得到了SVM-RFE算法。</p>
 
       
     </div>
@@ -766,7 +764,7 @@ End
     
       <span class="post-meta-item-text">博客全站共</span>
     
-    <span title="博客全站共">394 字</span>
+    <span title="博客全站共">496 字</span>
   
 </div>
 
