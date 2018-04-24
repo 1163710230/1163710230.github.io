@@ -80,8 +80,6 @@
 
 
 
-  
-
 
   <link rel="alternate" href="/atom.xml" title="XYT's Blog" type="application/atom+xml" />
 
@@ -543,7 +541,7 @@
     
       <span class="post-meta-item-text">博客全站共</span>
     
-    <span title="博客全站共">295 字</span>
+    <span title="博客全站共">394 字</span>
   
 </div>
 
@@ -1061,6 +1059,26 @@
 
   
   
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
 
 
   
@@ -1070,23 +1088,6 @@
 
 <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
 
-<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=080808&w=300&t=n&d=vlNGs1A7E8LaIdFmVZ2ZndJ4iqy3D-Jni56IA7geldU&co=ffffff&ct=808080&cmo=3acc3a&cmn=ff5353"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+<script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=080808&w=300&t=n&d=vlNGs1A7E8LaIdFmVZ2ZndJ4iqy3D-Jni56IA7geldU&co=ffffff&ct=808080&cmo=3acc3a&cmn=ff5353"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
