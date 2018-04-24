@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-24T07:01:37.710Z</updated>
+  <updated>2018-04-24T07:20:10.735Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2018/04/24/SVM-RFE/"/>
     <id>http://yoursite.com/2018/04/24/SVM-RFE/</id>
     <published>2018-04-24T06:17:20.000Z</published>
-    <updated>2018-04-24T07:01:37.710Z</updated>
+    <updated>2018-04-24T07:20:10.735Z</updated>
     
-    <content type="html"><![CDATA[<pre><code>SVM-RFE的过程包括四个步骤：训练分类器，根据排列准则计算每个特征的地位，除去排在末位的特征，也就是除去最不相关的特征。</code></pre><p>伪代码描述如下</p><ol><li>输入和输出<br>(1)Inputs:<br> Training examples<br> $$ X_0 = [x_1, x_2,     \cdots x_k, \cdots x_l] $$<br> Class labels<br> $$ y = [y_1, y_2, \cdots y_k, \cdots y_l] $$<br>(2)Output:<br> Feature ranked list $ r $.</li><li>初始化<br> (1)Surviving features<br> $$ s = [1, 2, … n] $$<br> (2)Feature ranked list<br> $$ r = [ ] $$</li><li>计算<br> Repeat until s = [ ]<pre><code>X = X0(:, s)model = SVM-train(X, y) Rank(i) =  RankCriterion(model.aplha, X)f = argmin(Rank)r = [s(f), r]s = s(1:f-1, f+1:length(s))</code></pre> End<br>In this,for SVM-RFE with a linear kernel function $ Rank(i) = \sum_{i=1}^{m}(α_iy_ix_i)^2) $ for SVM-RFE with a nonlinear kernel function $ Rank(i) = \frac{1}{2}α‘Qα − \frac{1}{2}α‘Q(−i)α $;<br>$ α $ is the coefficient vector，and the $ Q(−i) $ means the matrix without the ith feature<br>This equation is based on the assumption that α is unchanged when the ith feature is eliminated,</li></ol>]]></content>
+    <content type="html"><![CDATA[<p>SVM-RFE的过程包括四个步骤：训练分类器，根据排列准则计算每个特征的地位，除去排在末位的特征，也就是除去最不相关的特征。</p><p>伪代码描述如下</p><ol><li>输入和输出<br>(1)Inputs:<br> Training examples<br> $$ X_0 = [x_1, x_2,     \cdots x_k, \cdots x_l] $$<br> Class labels<br> $$ y = [y_1, y_2, \cdots y_k, \cdots y_l] $$<br>(2)Output:<br> Feature ranked list $ r $.</li><li>初始化<br> (1)Surviving features<br> $$ s = [1, 2, … n] $$<br> (2)Feature ranked list<br> $$ r = [ ] $$</li><li>计算<br> Repeat until s = [ ]<pre><code>X = X0(:, s)model = SVM-train(X, y) Rank(i) =  RankCriterion(model.aplha, X)f = argmin(Rank)r = [s(f), r]s = s(1:f-1, f+1:length(s))</code></pre> End<br>In this,for SVM-RFE with a linear kernel function $ Rank(i) = \sum_{i=1}^{m}(α_iy_ix_i)^2) $ for SVM-RFE with a nonlinear kernel function $ Rank(i) = \frac{1}{2}α‘Qα − \frac{1}{2}α‘Q(−i)α $;<br>$ α $ is the coefficient vector，and the $ Q(−i) $ means the matrix without the ith feature<br>This equation is based on the assumption that α is unchanged when the ith feature is eliminated,</li></ol>]]></content>
     
     <summary type="html">
     
